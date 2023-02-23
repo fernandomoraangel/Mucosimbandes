@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>#{{total_num}} results</h1>
+    {% for query, result, score, url in data %}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+        <div class="panel panel-header">{{score}}</div>
+        <div class="panel panel-body" id="occ{{query}}_{{result}}"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{super()}}
+<script type="text/javascript">
+var vrvToolkit = new verovio.toolkit();
+
+// Render results
+options = {
+    scale: 40,
+    pageHeight: 1200
+}
+vrvToolkit.setOptions(options)
+
+{% for query, result, score, url in data %}
+    /* Load the file using HTTP GET */
+    $.get(
+        "{{url}}",
+        function(data) {
+            var svg = vrvToolkit.renderData(data, {});
+            $("#occ{{query}}_{{result}}").html(svg);
+        },
+        'text');
+{% endfor %}
+</script>
+{% endblock scripts %}

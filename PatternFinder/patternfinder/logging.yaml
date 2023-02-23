@@ -1,0 +1,57 @@
+version: 1
+disable_existing_loggers: true
+
+root:
+    level: WARNING
+    handlers: [console]
+
+loggers:
+    patternfinder.geometric_helsinki:
+        level: WARNING
+        handlers: [console, logfile]
+        propagate: no
+
+    patternfinder.geometric_helsinki.finder:
+        level: WARNING
+        propagate: no
+
+    patternfinder.geometric_helsinki.algorithms:
+        level: WARNING
+        handlers: [logfile]
+        filters: []
+        propagate: no
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: WARNING
+        formatter: simple
+        stream: ext://sys.stdout
+
+    algorithm_handler:
+        class: logging.StreamHandler
+        level: WARNING
+        formatter: simple
+        stream: ext://sys.stdout
+
+    logfile:
+        class: logging.FileHandler
+        level: WARNING
+        formatter: simple
+        filename: debug.log
+
+filters:
+    P1:
+        name: patternfinder.geometric_helsinki.algorithms.P1
+    P2:
+        name: patternfinder.geometric_helsinki.algoritms.P2
+    P3:
+        name: patternfinder.geometric_helsinki.algorithms.P3
+    S1:
+        name: patternfinder.geometric_helsinki.algorithms.S1
+
+formatters:
+    simple:
+        class: logging.Formatter
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(funcName)s \n %(message)s \n"
+

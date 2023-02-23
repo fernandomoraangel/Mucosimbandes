@@ -1,0 +1,16 @@
+music21
+parameterized
+tox
+more_itertools
+future
+pyyaml
+jupyter
+matplotlib
+scipy
+vprof
+pandas
+pylint
+pytest
+pysolr
+numpy
+pandas

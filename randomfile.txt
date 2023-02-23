@@ -1,0 +1,5 @@
+Environment settings:
+musicXML:   c:\Users\ferna\Documents\Desarrollo\Python\C:\Program Files\MuseScore 3\MuseScore.exe
+musescore:  C:\Program Files\MuseScore 3\bin\MuseScore3.exe
+5  archivos
+['Archivos MusicXML', 'Archivos en software de notación', 'Corpus.gsheet', 'Documentos de análisis de patrones', 'Textos originales']

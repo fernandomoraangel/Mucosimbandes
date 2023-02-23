@@ -1,0 +1,16 @@
+algorithm:
+    'auto'
+pattern_window:
+    1
+source_window:
+    5
+scale:
+    pure
+threshold:
+    all
+mismatches:
+    0
+interval_func:
+    semitones
+colour:
+    red
